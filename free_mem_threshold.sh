@@ -2,13 +2,14 @@
 
 ## 
 ## A simple way to monitore your free mem and run some troubleshooting when necessary.
+## Put it on your cron!
 ##
 
 if [ -z $1 ] ; then
   echo "usage: '$0 <threshold_percent> [ admin_mail_addr ]'"
   echo "--------------------------------------------------------"
   echo "  <threshold_percent> -Threshold percent for free mem"
-  echo "  [ admin_mail_addr ] - sys admin mail address that will receive a feedback when some throubleshooting action be done. ( 'mutt' must be installed )"
+  echo "  [ admin_mail_addr ] - sys admin mail address that will receive a feedback when some troubleshooting action be done. ( 'mutt' must be installed )"
   exit 1
 fi 
 
@@ -26,15 +27,11 @@ do_troubleshooting_actions() {
     echo "******************************"
 
     ### Throubleshooting Examples:
-    
     #echo -e "\n\n#Restarting supervisord ...\n"
     #/etc/init.d/supervisor stop && /etc/init.d/supervisor start; sleep 60 ;
     
     #echo "Checking 'foo' service port"
-    #nc -zv localhost 8888
-
-    #echo "Checking 'mysql' service port"
-    #nc -zv localhost 8888
+    #nc -zv localhost 3001
 
     echo "******************************"
 
