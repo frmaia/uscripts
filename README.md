@@ -1,5 +1,29 @@
 ## Useful scripts
-- hex-string.py -- Print a hexadecimal string.
+
+- **minimalist_web_server** -- a really minimalist Web Server
+- **cloudfront/aws-cf-sign-url.py** -- a simple python script to sign AWS CloudFront URL's 
+- **free_mem_threshold.sh** -- check free mem and execute some troubleshooting action if necessary.
+- **hex-string.py** -- A 'stupid' script to print a hexadecimal string.
+
+
+
+##### minimalist_web_server -- a really minimalist Web Server
+```
+Usage: python2.7 minimalist_web_server.py <PORT>
+
+$ python minimalist_web_server.py 9998
+Listening on port 9998 
+Ok! I received your post! Data: 'Bla'
+127.0.0.1 - - [16/Jul/2014 13:45:38] "POST / HTTP/1.1" 200 -
+Ok! I received your post! Data: 'Bla'
+127.0.0.1 - - [16/Jul/2014 13:46:03] "POST / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jul/2014 13:46:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jul/2014 13:46:25] "GET /test.txt HTTP/1.1" 200 -
+
+```
+
+
+##### hex-string.py -- Print a hexadecimal string.
 
 
 ```
@@ -20,7 +44,7 @@ Examples:
   d92e
 ```
 
-- free_mem_threshold.sh -- check free mem and execute some troubleshooting action if necessary.
+##### free_mem_threshold.sh -- check free mem and execute some troubleshooting action if necessary.
 
 
 ```
