@@ -6,6 +6,7 @@
 - **hex-string.py** -- A 'stupid' script to print a hexadecimal string.
 
 
+### Help
 
 ##### minimalist_web_server -- a really minimalist Web Server
 ```
