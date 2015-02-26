@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2.7
 
 import SimpleHTTPServer
 import SocketServer
@@ -16,6 +16,7 @@ class TestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
 	def do_POST(self):
 		""" Handle a POST request """
+
 		if not self.headers.getheader('content-length'):
 			response_message = "Ok! But no data received!\n"
 
@@ -39,7 +40,7 @@ def start_server(port, server_class=SocketServer.TCPServer, handler_class=TestHa
 
 if __name__ == "__main__":
 
-	if len(sys.argv) < 2:
+	if len(sys.argv) != 2:
 		sys.exit("Usage: python2.7 %s <PORT>" % sys.argv[0])
 
 	port = int(sys.argv[1])
