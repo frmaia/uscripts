@@ -10,7 +10,7 @@ Write a script to print out the device thats turned off. In this case the output
 
 ### Components:
 
-##### monitor.py 
+##### [monitor.py](./monitor.py)
 - Description: 
 The monitor,py is the script implements the algorithm described above
 
@@ -23,10 +23,10 @@ The monitor basically contains two functions:
   - The helper function that send the request 'get_connected_clients' to the server.
 
 
-##### client.py
+##### [client.py](./client.py)
 A helper class that implements a simple and minimalist TCP client that will keep a TCP connection open with the server.
 
-##### server.py 
+##### [server.py](./server.py)
 A helper class that implements a simple and minimalist TCP server which allows its connected clients to send some simple commands, keeping track from its client connections.
 
 Compatible commands that can be received by this server:
