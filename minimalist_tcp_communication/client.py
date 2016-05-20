@@ -38,11 +38,16 @@ class Client:
 
 
 if __name__ == "__main__":
-	server_host, server_port = sys.argv[1].split(':')
-	server_host = str(server_host) 
-	server_port = int(server_port) 
 
-	client_id = str(sys.argv[2])
-	client_name = str(sys.argv[3])
+	try:
+		server_host, server_port = sys.argv[1].split(':')
+		server_host = str(server_host) 
+		server_port = int(server_port) 
+
+		client_id = str(sys.argv[2])
+		client_name = str(sys.argv[3])
+	except (ValueError,IndexError):
+			sys.exit("Usage: \n\t python %s <server_host>:<server_port> <client_id> <client_name> " % sys.argv[0])
+
 	client = Client(server_host, server_port, client_id, client_name)
 

@@ -59,8 +59,11 @@ def active_mode(server_host,server_port, interval_between_rechecks=5):
 			
 
 if __name__ == "__main__":
-	server_host, server_port = sys.argv[1].split(':')
-	server_host = str(server_host) 
-	server_port = int(server_port) 
+	try:
+		server_host, server_port = sys.argv[1].split(':')
+		server_host = str(server_host) 
+		server_port = int(server_port) 
+	except (ValueError,IndexError):
+		sys.exit("Usage: \n\t python %s <server_host>:<server_port> " % sys.argv[0])
 
 	active_mode(server_host,server_port)

@@ -74,10 +74,21 @@ class Server:
 
 
 if __name__ == "__main__":
-	server_port = int(sys.argv[1])
+	try:
+	
+		server_port = int(sys.argv[1])
+		server = Server(server_port)
+	
+	except IndexError:
+		#Ignore... use the default port...
+		server = Server()
+
+	except ValueError:
+		sys.exit("Usage: \n\t python %s <port> " % sys.argv[0])
+
 	
 	try:
-		server = Server(server_port)
+		
 		start_new_thread(server.start())
 	except KeyboardInterrupt:
 		server.stop()

@@ -19,8 +19,7 @@ The monitor basically contains two functions:
 - **def active_mode:**
   - Implements the algorithm, actively asking the server for the get_connected_devices
 
-**def get_connected_devices:**
-- get_connected_devices
+- **def get_connected_devices:**
   - The helper function that send the request 'get_connected_clients' to the server.
 
 
@@ -37,13 +36,15 @@ Compatible commands that can be received by this server:
 
 
 
-### Test the script
+### How to run the test:
 
 1. Start the Server:
 ```bash
 # Use: python server.py <port>
 # Example:
 python server.py 9999
+
+# Press ctrl+C to stop the server.
 ```
 
 2. Start the Monitor script, and keep the eyes on it:
@@ -52,6 +53,8 @@ python server.py 9999
 # Example:
 
 python monitor.py localhost:9999
+
+# Press ctrl+C to stop monitor.
 ```
 
 3. Start and stop so many Clients you want, and check the simple algorithm behavior throught the Monitor script.
@@ -60,6 +63,8 @@ python monitor.py localhost:9999
 # Example:
 
 python client.py localhost:9999 333 i3
+
+# Press ctrl+C to stop client.
 ```
 
-**Press ctrl+C to stop the components.**
+
