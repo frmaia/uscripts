@@ -18,9 +18,14 @@ def get_connected_devices(server_host, server_port):
 		return data
 
 
-def active_mode(server_host,server_port, interval_between_rechecks=5):
+def active_mode(server_host, server_port, interval_between_rechecks=5):
 	"""
 	Actively asks the server for the connected devices list, compare with the last state to bring changes informations to screen.
+
+	It also could be working in a passive mode, once the connection/disconnection events are being simulated through sockets. 
+	In this way, the polling would no be necessary and these messages can be printed by the monitor in a real-time.
+	However, the code was written doing a fetch on the get_connected_devices function because it is probably the expected result according to the enunciation.
+
 	"""
 
 	INTERVAL_BETWEEN_RECHECKS = 5

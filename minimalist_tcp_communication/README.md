@@ -12,9 +12,10 @@ Write a script to print out the device thats turned off. In this case the output
 
 ##### [monitor.py](./monitor.py)
 - Description: 
-The monitor,py is the script implements the algorithm described above
+The monitor,py is the script that implements the algorithm described above.
 
-It works in an active mode, asking the server for the connected devices list, and compare it with the last state to bring the expected informations about the inventary of connected devices.
+It works in an active mode, requesting the connected devices list for server, and compare it with the last collected inventary of connected devices. If some change happened, it will print a message explaining what happened.
+
 The monitor basically contains two functions:
 - **def active_mode:**
   - Implements the algorithm, actively asking the server for the get_connected_devices
