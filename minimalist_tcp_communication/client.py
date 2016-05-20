@@ -10,14 +10,15 @@ class Client:
 	"""
 	A simple tcp client that keeps a connection open with the server, sending it's client_id and client_name information
 	"""
-	def __init__(self, server_port,  client_id, client_name):
+	def __init__(self, server_host, server_port,  client_id, client_name):
 
 		self.id = client_id
 		self.name = client_name
 
 		self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-		self.socket.connect(('localhost', server_port))
+		self.socket.connect((server_host, server_port))
+		# Send a connect command to the server
 		self.socket.send('connect %s %s' % (self.id, self.name))
 		data = self.socket.recv(BUFFER_SIZE)
 		print "Received data: ", data
@@ -37,11 +38,11 @@ class Client:
 
 
 if __name__ == "__main__":
-	server_address, server_port = sys.argv[1].split(':')
-	server_address = str(server_address) 
+	server_host, server_port = sys.argv[1].split(':')
+	server_host = str(server_host) 
 	server_port = int(server_port) 
 
 	client_id = str(sys.argv[2])
 	client_name = str(sys.argv[3])
-	client = Client(server_port, client_id, client_name)
+	client = Client(server_host, server_port, client_id, client_name)
 
