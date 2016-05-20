@@ -3,7 +3,6 @@
 import json
 import socket
 import sys
-import time
 
 from thread import *
 
