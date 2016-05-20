@@ -51,17 +51,21 @@ class Server:
 
 			print "DEBUG: Received data: %s" % data
 			
+			# get_connected_clients will provide the connected_clients information (stored in the dict) to the requester
 			if data == 'get_connected_clients':
 				conn.send(json.dumps(self.connected_clients, sort_keys=True))
 				return
 
-
+			# expected messages pattern: <command> <client_id> <client_name>
+			#TODO: this block can be improved to beauty exceptions for messages outside this 'defined protocol'
 			command, client_id, client_name = data.split()
 			
+			#connect command will insert the key, value (client_id, client_name) in the array
 			if command == 'connect' and client_id not in self.connected_clients:
 				self.connected_clients[client_id] = client_name
 				conn.send("%s is turned on!" % client_name)
 
+			#disconnect command will remove the key, value (client_id, client_name) from the array
 			elif command == 'disconnect' and client_id in self.connected_clients:
 				del self.connected_clients[client_id]
 				conn.send("%s is turned off!" % client_name)
